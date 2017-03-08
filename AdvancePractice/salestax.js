@@ -22,11 +22,11 @@ function calculateSalesTax(salesData, taxRates) {
   // Implement your code here
   var o = {};
 
-  for (var i = 0; i < salesData.length; i++) {
-    var companyName = salesData[i].name;
-    var province = salesData[i].province;
+  for (var companyData in companySalesData) {
+    var companyName = companySalesData[companyData].name;
+    var province = companySalesData[companyData].province;
     var sales = 0;
-    sales += salesData[i].sales.reduce(function(a, b) {
+    sales += companySalesData[companyData].sales.reduce(function(a, b) {
       return a + b;
     }, 0);
 
