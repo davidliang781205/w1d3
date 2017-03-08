@@ -4,10 +4,8 @@ function countLetters(str){
   var o = {};
 
   for (var i = 0; i < str.length; i++) {
-
-
     if (typeof o[str[i]] === 'undefined'){
-      o[str[i]] = 1
+      o[str[i]] = 1;
     } else {
       o[str[i]] += 1;
     }
