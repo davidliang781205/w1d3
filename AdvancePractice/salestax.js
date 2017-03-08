@@ -22,23 +22,23 @@ function calculateSalesTax(salesData, taxRates) {
   // Implement your code here
   var o = {};
 
-  for (var companyData in companySalesData) {
-    var companyName = companySalesData[companyData].name;
-    var province = companySalesData[companyData].province;
+  for (var i = 0; i < salesData.length; i++) {
+    var companyName = salesData[i].name;
+    var province = salesData[i].province;
     var sales = 0;
-    sales += companySalesData[companyData].sales.reduce(function(a, b) {
+    sales += salesData[i].sales.reduce(function(a, b) {
       return a + b;
     }, 0);
 
-    if (typeof o[companyName] === 'undefined'){
+    if (!o[companyName]){
       o[companyName] = {};
       o[companyName] = {
           totalSales: sales,
           totalTaxes: sales * taxRates[province]
         };
     } else {
-      o[companyName].totalSales += sales;
-      o[companyName].totalTaxes += sales * taxRates[province];
+      o[companyName]['totalSales'] += sales;
+      o[companyName]['totalTaxes'] += sales * taxRates[province];
     }
 
 
