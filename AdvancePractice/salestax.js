@@ -18,15 +18,17 @@ var companySalesData = [{
   sales: [500, 100]
 }];
 
+
+
 function calculateSalesTax(salesData, taxRates) {
   // Implement your code here
   var o = {};
 
-  for (var i = 0; i < salesData.length; i++) {
-    var companyName = salesData[i].name;
-    var province = salesData[i].province;
+  for (var company in salesData) {
+    var companyName = salesData[company].name;
+    var province = salesData[company].province;
     var sales = 0;
-    sales += salesData[i].sales.reduce(function(a, b) {
+    sales += salesData[company].sales.reduce(function(a, b) {
       return a + b;
     }, 0);
 
